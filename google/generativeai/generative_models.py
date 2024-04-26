@@ -419,6 +419,7 @@ class ChatSession:
         stream: bool = False,
         tools: content_types.FunctionLibraryType | None = None,
         tool_config: content_types.ToolConfigType | None = None,
+        request_options: dict[str, Any] | None = None,
     ) -> generation_types.GenerateContentResponse:
         """Sends the conversation history with the added message and returns the model's response.
 
@@ -478,6 +479,7 @@ class ChatSession:
             stream=stream,
             tools=tools_lib,
             tool_config=tool_config,
+            request_options=request_options
         )
 
         self._check_response(response=response, stream=stream)
